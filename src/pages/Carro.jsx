@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import { Link } from 'react-router-dom';
 
 
 const Carro = () => {
@@ -25,6 +26,7 @@ const Carro = () => {
                 <span>{pizza.count}</span>
                 <button onClick={() => decrement(pizza.id)} className='btn btn-primary'>-</button>
               </div>
+              <Link to="/Checkout" className="btn btn-primary mb-5">Checkout</Link>
             </div>
           </div>
         ))}

@@ -21,8 +21,8 @@ const Card = ({ pizza }) => {
         <br />
         <p className="card-text">{ingredients}</p>
         <p className="card-text fs-3">${price}</p>
-        <button className="btn btn-primary" onClick={handleNavigate}>Ver Pizza</button>
-        <button onClick={()=>addToCart(pizza)} className='btn btn-primary'>Add to cart</button>
+        <button className="btn btn-primary mx-3 my-1" onClick={handleNavigate}>Ver Pizza</button>
+        <button onClick={()=>addToCart(pizza)} className='btn btn-primary mx-3 my-1'>Add to cart</button>
 
       </div>
 

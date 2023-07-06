@@ -18,7 +18,7 @@ const Checkout = () => {
   return (
     <div className="container">
       <h1 className="text-center my-4">Checkout</h1>
-      <h2>Cart</h2>
+      <h2>Carro de compras</h2>
       <ul>
         {cart && cart.map((pizza) => (
           <li key={pizza.id}>{pizza.name} - {pizza.count}</li>
@@ -26,7 +26,7 @@ const Checkout = () => {
       </ul>
       <h2>Total: {total} 
       </h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="mb-5">
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Nombre</label>
           <input type="text" className="form-control" id="name" value={name} onChange={(e) => setName(e.target.value)} />
@@ -39,7 +39,7 @@ const Checkout = () => {
           <label htmlFor="address" className="form-label">Direccion</label>
           <input type="text" className="form-control" id="address" value={address} onChange={(e) => setAddress(e.target.value)} />
         </div>
-        <button type="submit" className="btn btn-primary">Ordenar</button>
+        <button type="submit" className="btn btn-primary mb-5">Realizar Pedido</button>
       </form>
     </div>
   )
