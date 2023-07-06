@@ -3,35 +3,34 @@ import { AppContext } from '../context/AppContext';
 
 
 const Carro = () => {
-  
-      const { cart, decrement, increment } = useContext(AppContext);
-  
-      return (
-          <div className="container overflow-visible mb-5">
-              <h1 className="text-center my-4">Carro de compras</h1>
-              <div className="row">
-                  {cart && cart.map((pizza) => (
-                      <div className="col-12 col-md-4 mb-4" key={pizza.id}>
-                          <div className="card">
-                              <img src={pizza.img} alt={pizza.name} className='card-img-top' />
-                              <v className="card-body">
-                                  <h5 className="card-title">{pizza.name}</h5>
-                                  <p className="card-text">{pizza.desc}</p>
-                                  <br />
-                                  <p className="card-text">{pizza.ingredients}</p>
-                                  <p className="card-text fs-3">${pizza.price}</p>
-                                  
-                                  <button onClick={() => decrement(pizza)} className='btn btn-primary'>-</button>
-                                  <span className="mx-2">{pizza.quantity}</span>
-                                  <button onClick={() => increment(pizza)} className='btn btn-primary'>+</button>
 
-                              </v>
-                          </div>
-                      </div>
-                  ))}
+  const { cart, increment, decrement, total }= useContext(AppContext);
+
+  return (
+    <div className="container overflow-visible mb-5">
+      <h1 className="text-center my-4">Carro de compras</h1>
+      <h1>Cart total: {total}</h1>
+      <div className="row">
+        {cart && cart.map((pizza) => (
+          <div className="col-12 col-md-4 mb-4" key={pizza.id}>
+            <div className="card">
+              <img src={pizza.img} alt={pizza.name} className='card-img-top' />
+              <div className="card-body">
+                <h5 className="card-title">{pizza.name}</h5>
+                <p className="card-text">{pizza.desc}</p>
+                <br />
+                <p className="card-text">{pizza.ingredients}</p>
+                <p className="card-text fs-3">${pizza.price}</p>
+                <button onClick={() => increment(pizza.id)} className='btn btn-primary'>+</button>
+                <span>{pizza.count}</span>
+                <button onClick={() => decrement(pizza.id)} className='btn btn-primary'>-</button>
               </div>
+            </div>
           </div>
-      );
-  }
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default Carro;

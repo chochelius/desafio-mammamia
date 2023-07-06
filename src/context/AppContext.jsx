@@ -21,7 +21,7 @@ export const AppProvider = ({ children }) => {
 
   const addToCart = (pizza) => {
     const findProductIndex = cart.findIndex((item) => item.id === pizza.id);
-    const pruduct = {
+    const product = {
       id: pizza.id,
       name: pizza.name,
       price: pizza.price,
@@ -33,21 +33,32 @@ export const AppProvider = ({ children }) => {
       cart[findProductIndex].count++;
       setCart([...cart]);
     } else {
-      setCart([...cart, pruduct]);
+      setCart([...cart, product]);
     }
   }
-  const increment = (index) => {
-    cart[index].count++;
-    setCart([...cart]);
+
+  const increment = (pizzaId) => {
+  let newCart = [...cart];
+  const index = newCart.findIndex(pizza => pizza.id === pizzaId);
+  if(newCart[index]) {
+    newCart[index].count++;
+    setCart(newCart);
   }
-  const decrement = (index) => {
-    if (cart[index].count === 1) {
-      cart.splice(index, 1);
+}
+
+const decrement = (pizzaId) => {
+  let newCart = [...cart];
+  const index = newCart.findIndex(pizza => pizza.id === pizzaId);
+  if(newCart[index]) {
+    if (newCart[index].count === 1) {
+      newCart.splice(index, 1);
     } else {
-      cart[index].count--;
+      newCart[index].count--;
     }
-    setCart([...cart]);
+    setCart(newCart);
   }
+}
+  
   const total = cart.reduce((acc, item) => acc + (item.price * item.count), 0);
 
   const AppProviderValues = {
@@ -66,4 +77,6 @@ export const AppProvider = ({ children }) => {
       {children}
     </AppContext.Provider>
   );
-}
+};
+
+export default AppProvider;
