@@ -47,7 +47,7 @@ const Inicio = () => {
     <div className="container overflow-visible mb-5">
       <h1 className="text-center my-4">Las Pizzas de la Semana</h1>
 
-      <div className="row">
+      <div className="row mb-5">
         {loading && <p className="text-center">Cargando...</p>}
         {randomPizzas && randomPizzas.map((pizza) => (
           <div className="col-6 mx-auto mb-5" key={pizza.id}>

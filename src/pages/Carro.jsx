@@ -26,7 +26,7 @@ const Carro = () => {
                 <span>{pizza.count}</span>
                 <button onClick={() => decrement(pizza.id)} className='btn btn-primary'>-</button>
               </div>
-              <Link to="/Checkout" className="btn btn-primary mb-5">Checkout</Link>
+              <Link to="/Checkout" className="btn btn-primary mb-5">Pagar</Link>
             </div>
           </div>
         ))}

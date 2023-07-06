@@ -4,6 +4,7 @@ import Checkout from '../pages/Checkout';
 import Contacto from '../pages/Contacto';
 import Inicio from '../pages/Inicio';
 import Menu from '../pages/Menu';
+import Pizza from '../pages/Pizza';
 
 
 const AppRouter = () => {
@@ -14,6 +15,8 @@ const AppRouter = () => {
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/carro" element={<Carro />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/pizza/:idpizza" element={<Pizza />} />
+
     </Routes>
   );
 }
