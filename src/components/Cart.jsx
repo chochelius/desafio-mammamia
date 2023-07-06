@@ -34,13 +34,13 @@ const Cart = () => {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <div className="modal-body">
+                    <div className="modal-body m-5">
                         <div className="container overflow-visible mb-5">
                             <h1 className="text-center my-4">Carro de compras</h1>
                             <h1>Cart total: {total}</h1>
                             <div className="row">
                                 {cart && cart.map((pizza) => (
-                                    <div className="col-12 col-md-4 mb-4" key={pizza.id}>
+                                    <div className="col-12 col-md-4 mb-4 mx-auto" key={pizza.id}>
                                         <div className="card">
                                             <img src={pizza.img} alt={pizza.name} className='card-img-top' />
                                             <div className="card-body">
@@ -61,8 +61,8 @@ const Cart = () => {
                     </div>
 
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <Link to="/Carro" className="btn btn-primary">Go to Cart</Link>
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <Link to="/Carro" className="btn btn-primary">Ir al carro a pagar</Link>
                     </div>
                 </div>
             </div>

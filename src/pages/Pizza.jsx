@@ -10,7 +10,7 @@ import { useFetch } from '../hooks/useFetch';
 
 
 
-const Pizza = (  ) => {
+const Pizza = () => {
   const navigate = useNavigate();
   const { idpizza } = useParams();
   const { data, loading } = useFetch('/pizzas.json');
@@ -34,10 +34,11 @@ const Pizza = (  ) => {
 
   return (
     <div className="container overflow-visible mb-5">
+      <button onClick={handleNavigate} className="btn btn-primary mt-5">Volver</button>
       <h1 className="text-center my-4">Pizza</h1>
       <div className="row">
-        <div className="col-12 col-md-4 mb-4" key={pizza.id}>
-          <div className="card">
+        <div className="col-12 col-md-4 mb-4 mx-auto" key={pizza.id}>
+          <div className="card mx-auto">
             <img src={pizza.img} alt={pizza.name} className='card-img-top' />
             <div className="card-body">
               <h5 className="card-title">{pizza.name}</h5>
@@ -50,7 +51,7 @@ const Pizza = (  ) => {
           </div>
         </div>
       </div>
-      <button onClick={handleNavigate} className="btn btn-primary mb-5">Volver</button>
+
     </div>
   );
 }
