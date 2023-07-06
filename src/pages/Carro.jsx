@@ -1,9 +1,37 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
 
-function Carro() {
-  return (
-    <div>Carro</div>
-  )
-}
 
-export default Carro
+const Carro = () => {
+  
+      const { cart, decrement, increment } = useContext(AppContext);
+  
+      return (
+          <div className="container overflow-visible mb-5">
+              <h1 className="text-center my-4">Carro de compras</h1>
+              <div className="row">
+                  {cart && cart.map((pizza) => (
+                      <div className="col-12 col-md-4 mb-4" key={pizza.id}>
+                          <div className="card">
+                              <img src={pizza.img} alt={pizza.name} className='card-img-top' />
+                              <v className="card-body">
+                                  <h5 className="card-title">{pizza.name}</h5>
+                                  <p className="card-text">{pizza.desc}</p>
+                                  <br />
+                                  <p className="card-text">{pizza.ingredients}</p>
+                                  <p className="card-text fs-3">${pizza.price}</p>
+                                  
+                                  <button onClick={() => decrement(pizza)} className='btn btn-primary'>-</button>
+                                  <span className="mx-2">{pizza.quantity}</span>
+                                  <button onClick={() => increment(pizza)} className='btn btn-primary'>+</button>
+
+                              </v>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+      );
+  }
+
+export default Carro;

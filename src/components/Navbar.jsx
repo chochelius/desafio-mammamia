@@ -10,10 +10,10 @@ const Navbar = () => {
         <Link to="/" className="navbar-brand">Pizza App</Link>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link to="/products" className="nav-link">Products</Link>
+            <Link to="/Menu" className="nav-link">Menu</Link>
           </li>
           <li className="nav-item">
-            <Link to="/cart" className="nav-link">Cart ({total})</Link>
+            <Link to="/Carro" className="nav-link">Carro ({total})</Link>
           </li>
         </ul>
       </div>
